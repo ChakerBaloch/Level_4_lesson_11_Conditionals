@@ -50,7 +50,12 @@
         Create a conditional statement that logs "This is true" in the console
         Hint: Use the equal operator ==
         Edit the condition to change the output to "This is not true" */
-
+        let weatherCondition = true;
+        if(weatherCondition == true){
+            console.log("This is true");
+        } else{
+            console.log("This is false");
+        }
 
 
 
@@ -62,19 +67,25 @@
         Edit the condition to change the output to "Hello world!"
         Hint: use the not equal operator != 
         */
-
+        let friend = 'Katie';
+        if(friend != 'Katie'){
+             console.log("Hi "+friend)
+        } else{
+            console.log("Hello world!");
+        }
       
 
         //Exercise 3
         //Select the input tag by its id and assign is variable with const keyword
-      
+        const inputBarometer = document.querySelector('#barometer');
 
         function changeWeather(evt) {
             evt.preventDefault();
             //Exercise 4
             //Get the value of the input using its variable name and the value property
             //Log its value in the console
-       
+            barometerPressure = inputBarometer.value;
+            console.log("Barometric pressure: "+ barometerPressure);
 
             /* Exercise 6
             Create an if statement to show the sun at pressures over 30
@@ -93,14 +104,26 @@
             Make it rain and play the thunderstorm audio
             select the audio tag by its id and run the play() method on it
             */
-
+            
+            if(barometerPressure >= 30){
+                sunny();
+            } else if(barometerPressure >= 29 && barometerPressure < 30){
+                addClouds();
+            } else if(barometerPressure >= 28 && barometerPressure < 29){
+                addRainClouds();
+            } else if(barometerPressure >= 27 && barometerPressure < 28){
+                makeRain();
+            } else if(barometerPressure < 27){
+                document.querySelector('#storm').play();
+            }
+           
           
         }
 
         //Exercise 5
         /*Add an event listener for the input object using its variable name
         and have it call the changeWeather function on the 'change' event */
-
+        inputBarometer.addEventListener('change',changeWeather);
 
 
 
